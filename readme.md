@@ -1,5 +1,7 @@
+add given json in post with name "json"
+
 #json sutructure for deffrient message but same subject <br>
-json{
+
     "api_key" : ""
     "type" : "1"
 
@@ -11,11 +13,11 @@ json{
         "email":""
         "message":""
     }
-}
+
 
 
 #json sutructure for deffrient message and deffrient subject <br>
-json{
+
     "api_key" : ""
     "type" : "2"
 
@@ -27,10 +29,10 @@ json{
         "subject" : ""
         "message":""
     }
-}
+
 
 #json sutructure for same message and same subject
-json{
+
     "api_key" : ""
     "type" : "3"
 
@@ -42,7 +44,7 @@ json{
     [n]:{
         "email":""
     }
-}
+
 
 1 = deffrient message but same subject
 2 = deffrient message and same subject
