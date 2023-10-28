@@ -1,6 +1,6 @@
 add given json in post with name "json"
 
-#json sutructure for deffrient message but same subject <br>
+<b>json sutructure for deffrient message but same subject</b> <br>
 
     "api_key" : ""
     "type" : "1"
@@ -16,7 +16,7 @@ add given json in post with name "json"
 
 
 
-#json sutructure for deffrient message and deffrient subject <br>
+<b>json sutructure for deffrient message and deffrient subject</b> <br>
 
     "api_key" : ""
     "type" : "2"
@@ -31,7 +31,7 @@ add given json in post with name "json"
     }
 
 
-#json sutructure for same message and same subject
+<b>json sutructure for same message and same subject</b> <br>
 
     "api_key" : ""
     "type" : "3"
