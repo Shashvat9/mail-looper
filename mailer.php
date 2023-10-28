@@ -4,8 +4,8 @@
 
     $api_key_value="dp123";
 
-    if (strtoupper($_SERVER["REQUEST_METHOD"]) == "POST") {
-        $json_st = $_POST["json"];
+    if (strtoupper($_SERVER["REQUEST_METHOD"]) == "GET") {
+        $json_st = $_GET["json"];
         $json = json_decode($json_st, true);
         $api_key = $json["api_key"];
         
