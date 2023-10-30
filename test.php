@@ -1,12 +1,11 @@
 <?php
     $array = array("api_key"=>"mailre123",
-    "type"=>1,
+    "type"=>"1",
     "api_key"=>"dp123",
     "from_email"=>"vidya.gmit@gmail.com",
-    "from_pass"=>"uwrxrdoyqcrbgecb",
+    "application_pass"=>"uwrxrdoyqcrbgecb",
     "subject"=>"hi",
-    array("email"=>"hi@123","message"=>"hithere"),
-    array("email1"=>"hi@123","message"=>"hithere"));
+    ["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"],["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"]);
 
     // Get the keys of the array.
     $keys = array_keys($array);
@@ -18,8 +17,25 @@
     // echo $lastKey; // 1
     
     print_r(json_encode($array));
+    $jsonarr=json_encode($array);
 
-    // print_r($array[0]["email"]);
+    // print_r($array);
+
+    // $jsio="'api_key':'dp123','type':'1','from_email':'vidya.gmit@gmail.com','application_pass':'uwrxrdoyqcrbgecb','subject':'hi','0':{'email':'rajyagurushashvat@gmail.com','message':'hithere'},'1':{'email1':'dhruvjoshidj20@gmail.com','message':'hithere'}";
+
+    // if(array_key_exists(0,json_decode($jsonarr,true))){
+    //     for($i = 0 ; $i<=1 ; $i++){
+    //         $arr = json_decode($jsonarr,true)[0];
+    //         if(array_key_exists("email",$arr)){
+    //             echo "ok";
+    //         }
+    //     }
+    //     // print_r($arr);
+
+    // }
+    // else{
+    //     echo "not";
+    // }
 
     // include "libraryx.php";
 

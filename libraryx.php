@@ -44,7 +44,7 @@ class mail_to_send{
             echo "<script>alert('".$alert."')</script>";
         }
         return 1;
-        }
+    }
     }
     
     class file_mani 
