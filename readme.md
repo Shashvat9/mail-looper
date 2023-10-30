@@ -24,8 +24,8 @@ add given json in post with name "json"
     }
 
 codes: 
-    101 = mail sent
-    102 = wrong json
+    101 = mail sent<br>
+    102 = wrong json<br>
 
 
 
@@ -44,8 +44,8 @@ codes:
     }
 
 codes: 
-    201 = mail sent
-    202 = wrong json
+    201 = mail sent<br>
+    202 = wrong json<br>
 
 
 <b>json sutructure for same message and same subject</b><hr> <br> 
@@ -63,8 +63,8 @@ codes:
     }
 
 codes: 
-    301 = mail sent
-    302 = wrong json
+    301 = mail sent<br>
+    302 = wrong json<br>
 
 <b>json sutructure for otp on mail</b> <hr> <br>
 
@@ -78,21 +78,21 @@ codes:
     "message":""
     "subject" : ""
     "email":""
-    
+
 codes: 
-    401 = sent otp
-    402 = wrong json
+    401 = sent otp<br>
+    402 = wrong json<br>
 
 
-general error codes:
-    4004 = not a valid request
+general error codes:<br>
+    4004 = not a valid request<br>
 
 
-abbriviations :
+abbriviations :<br>
 
-1 = deffrient message but same subject
-2 = deffrient message and same subject
-3 = same message and same subject
+1 = deffrient message but same subject<br>
+2 = deffrient message and same subject<br>
+3 = same message and same subject<br>
 
-from_email = from which email are you want to send email  
-from_pass = password for that email
+from_email = from which email are you want to send email  <br>
+from_pass = password for that email<br>
