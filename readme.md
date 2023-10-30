@@ -67,6 +67,8 @@ codes:
     302 = wrong json
 
 <b>json sutructure for otp on mail</b> <hr> <br>
+
+
     "api_key" : ""
     "type" : "otp"
 
@@ -76,6 +78,7 @@ codes:
     "message":""
     "subject" : ""
     "email":""
+    
 codes: 
     401 = sent otp
     402 = wrong json
