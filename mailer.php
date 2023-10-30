@@ -2,7 +2,7 @@
     // include "conn.php";
     include "libraryx.php";
 
-    $api_key_value="dp123";
+    $api_key_value="need 69";
 
     if (strtoupper($_SERVER["REQUEST_METHOD"]) == "POST") {
         $json_st = $_POST["json"];
