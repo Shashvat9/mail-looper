@@ -67,11 +67,8 @@ codes:
     "message":""
     "subject" : ""
     "email":""
-    [n]:{
-        
-    }
 codes: 
-    401 = mail sent
+    401 = sent otp
     402 = wrong json
 
 

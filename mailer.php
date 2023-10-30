@@ -105,9 +105,8 @@
     function send_mail_otp($jsonArr)
     {
         $otp = rand(100000,999999);
-        $message = "This is your otp : ".$otp;
         sendMail($jsonArr["email"],$jsonArr["subject"],$jsonArr["message"]." ".$otp,$jsonArr["from_email"],$jsonArr["application_pass"]);
-        json_send(401,"mail sent");
+        json_send(401,$otp);
     }
 
     function validate_jason_diffMessageSameSubject($jsonArr) : bool
