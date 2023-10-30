@@ -1,10 +1,11 @@
 <b>Steps to obtain application password</b><hr><br>
-step 1 : go to security in google accounts 
-step 2 : locate application password and click on it
-stem 3 : select other in apps and put "-" in app name
-step 4 : copy generated password
+step 1 : go to security in google accounts <br>
+step 2 : locate application password and click on it<br>
+stem 3 : select other in apps and put "-" in app name<br>
+step 4 : copy generated password<br>
 
-or refeare https://youtu.be/9tD8lA9foxw?t=88 this link for generating password
+or<br>
+refeare https://youtu.be/9tD8lA9foxw?t=88 this link for generating password
 
 add given json in post with name "json"
 
