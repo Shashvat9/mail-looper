@@ -41,13 +41,15 @@
                 }
             }
             
+            
+
             // otp on mail
-            else if ($json["type"]=="otp") {
-                if(validate_jason_sameMessageSameSubject($json)){
+            else if (strtolower($json["type"])=="otp") {
+                if(validate_jason_send_mail_otp($json)){
                     send_mail_otp($json);
                 }
                 else{
-                    json_send(402,"wrong json");
+                    json_send(402,"wrong json ".print_r($json));
                 }
             }
 
@@ -175,7 +177,8 @@
     function validate_jason_send_mail_otp($jsonArr) : bool
     {
         $flag = false;
-        if(array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr)&& array_key_exists(0,$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
+        if(array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
+            $flag=true;
         }
         else{
             $flag = false;

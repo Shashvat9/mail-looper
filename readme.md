@@ -7,7 +7,9 @@ step 4 : copy generated password<br>
 or<br>
 refeare https://youtu.be/9tD8lA9foxw?t=88 this link for generating password
 
-add given json in post with name "json"
+add given json in post with name "json"<br>
+
+API link :- https://maillooper.000webhostapp.com/mailer.php
 
 <b>json sutructure for deffrient message but same subject</b><hr> <br>
 
