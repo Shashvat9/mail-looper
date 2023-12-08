@@ -103,10 +103,29 @@
         }
         json_send(301,"mail sent");
     }
+
+    function lowerBound(int $min): int{
+        $bound ="1";
+        for ($i=0;$i<$min-1;$i++){
+            $bound=$bound."0";
+        }
+        return (int)$bound;
+    }
+    function upperBound(int $max): int{
+        $bound ="9";
+        for ($i=0;$i<$max-1;$i++){
+            $bound=$bound."9";
+        }
+        return (int)$bound;
+    }
+    
+    function genRandom(int $length): int{
+        return rand(lowerBound($length),upperBound($length));
+    }
     
     function send_mail_otp($jsonArr)
     {
-        $otp = rand(100000,999999);
+        $otp = genRandom($jsonArr["length"]);
         sendMail($jsonArr["email"],$jsonArr["subject"],$jsonArr["message"]." ".$otp,$jsonArr["from_email"],$jsonArr["application_pass"]);
         json_send(401,$otp);
     }
@@ -177,7 +196,7 @@
     function validate_jason_send_mail_otp($jsonArr) : bool
     {
         $flag = false;
-        if(array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
+        if(array_key_exists("length",$jsonArr) && array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
             $flag=true;
         }
         else{

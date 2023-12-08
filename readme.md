@@ -73,6 +73,7 @@ codes:
 
     "api_key" : ""
     "type" : "otp"
+    "length":""
 
     "from_email":""
     "application_pass":""
