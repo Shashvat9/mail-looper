@@ -49,7 +49,7 @@
                     send_mail_otp($json);
                 }
                 else{
-                    json_send(402,"wrong json ".print_r($json));
+                    json_send(402,"wrong json.");
                 }
             }
 
