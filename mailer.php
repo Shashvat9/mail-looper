@@ -11,7 +11,7 @@
         
         if (getdata($api_key) == $api_key_value) {
             
-            // deffrient message but same subject
+            // deffrient message but same subjec
             if ($json["type"]==1) {
                 if(validate_jason_diffMessageSameSubject($json)){
                     diffMessageSameSubject($json);
