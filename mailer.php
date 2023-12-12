@@ -1,5 +1,4 @@
-<?php 
-    // include "conn.php";
+<?php
     include "libraryx.php";
 
     $api_key_value="need 69";
@@ -8,58 +7,60 @@
         $json_st = $_POST["json"];
         $json = json_decode($json_st, true);
         $api_key = $json["api_key"];
-        
-        if (getdata($api_key) == $api_key_value) {
-            
-            // deffrient message but same subjec
-            if ($json["type"]==1) {
-                if(validate_jason_diffMessageSameSubject($json)){
-                    diffMessageSameSubject($json);
+        if(validate_general_json($json)){
+            if (getdata($api_key) == $api_key_value) {
+                // deffrient message but same subject
+                if ($json["type"]==1) {
+                    if(validate_jason_diffMessageSameSubject($json)){
+                        diffMessageSameSubject($json);
+                    }
+                    else{
+                        json_send(102,"wrong json");
+                    }
                 }
+                
+                // deffrient message and same subject
+                else if ($json["type"]==2) {
+                    if(validate_jason_diffMessageDeffSubject($json)){
+                        diffMessageDeffSubject($json);
+                    }
+                    else{
+                        json_send(202,"wrong json");
+                    }
+                }
+    
+                // same message and same subject
+                else if ($json["type"]==3) {
+                    if(validate_jason_sameMessageSameSubject($json)){
+                        sameMessageSameSubject($json);
+                    }
+                    else{
+                        json_send(302,"wrong json");
+                    }
+                }
+    
+                // otp on mail
+                else if (strtolower($json["type"])=="otp") {
+                    if(validate_jason_send_mail_otp($json)){
+                        send_mail_otp($json);
+                    }
+                    else{
+                        json_send(402,"wrong json.");
+                    }
+                }
+    
                 else{
-                    json_send(102,"wrong json");
+                    json_send(4004,"not a valid request types.");
                 }
+                
+            } else {
+                json_send(4005,"wrong api key");
             }
-            
-            // deffrient message and same subject
-            else if ($json["type"]==2) {
-                if(validate_jason_diffMessageDeffSubject($json)){
-                    diffMessageDeffSubject($json);
-                }
-                else{
-                    json_send(202,"wrong json");
-                }
-            }
-
-            // same message and same subject
-            else if ($json["type"]==3) {
-                if(validate_jason_sameMessageSameSubject($json)){
-                    sameMessageSameSubject($json);
-                }
-                else{
-                    json_send(302,"wrong json");
-                }
-            }
-            
-            
-
-            // otp on mail
-            else if (strtolower($json["type"])=="otp") {
-                if(validate_jason_send_mail_otp($json)){
-                    send_mail_otp($json);
-                }
-                else{
-                    json_send(402,"wrong json.");
-                }
-            }
-
-            else{
-                json_send(4004,"not a valid request types.");
-            }
-            
-        } else {
-            echo "wrong api key";
         }
+        else{
+            json_send(4006,"type is missing from json");
+        }
+        
     } 
     else {
         // echo "wrong request. error code = ". http_response_code();
@@ -203,6 +204,17 @@
             $flag = false;
         }
 
+        return $flag;
+    }
+    function validate_general_json($jsonArr) : bool
+    {
+        $flag = false;
+        if(array_key_exists("type",$jsonArr)){
+            $flag=true;
+        }
+        else{
+            $flag = false;
+        }
         return $flag;
     }
 

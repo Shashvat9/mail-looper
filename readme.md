@@ -89,6 +89,8 @@ codes:
 
 general error codes:<br>
     4004 = not a valid request<br>
+    4005 = wrong api key<br>
+    4006 = type is measing form json<br>
 
 
 abbriviations :<br>
