@@ -2,10 +2,10 @@
     $array = array("api_key"=>"mailre123",
     "type"=>"1",
     "api_key"=>"dp123",
-    "from_email"=>"vidya.gmit@gmail.com",
-    "application_pass"=>"uwrxrdoyqcrbgecb",
+    "from_email"=>"your email",
+    "application_pass"=>"",
     "subject"=>"hi",
-    ["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"],["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"]);
+    ["email"=>"abc@gmail.com","message"=>"hithere"],["email"=>"abc@gmail.com","message"=>"hithere"]);
 
     // Get the keys of the array.
     $keys = array_keys($array);
