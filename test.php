@@ -1,11 +1,11 @@
 <?php
-    $array = array("api_key"=>"mailre123",
+    $array = array("json"=>array("api_key"=>"mailre123",
     "type"=>"1",
     "api_key"=>"dp123",
     "from_email"=>"vidya.gmit@gmail.com",
     "application_pass"=>"uwrxrdoyqcrbgecb",
     "subject"=>"hi",
-    ["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"],["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"]);
+    ["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"],["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"]));
 
     // Get the keys of the array.
     $keys = array_keys($array);

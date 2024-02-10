@@ -1,0 +1,10 @@
+<?php
+include("./DBmethod.php");
+session_start();
+    if(array_key_exists($__SESSIONID,$_COOKIE)||array_key_exists($__SESSIONID,$_SESSION)){
+        header("location:home.php");
+    }
+    else{
+        header("location:login.php"); 
+    }
+?>

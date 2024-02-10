@@ -68,7 +68,7 @@ codes:
     301 = mail sent<br>
     302 = wrong json<br>
 
-<b>json sutructure for otp on mail</b> <hr> <br>
+<b>json sutructure for send otp on mail</b> <hr> <br>
 
 
     "api_key" : ""
@@ -79,12 +79,23 @@ codes:
     "application_pass":""
 
     "message":""
+    "message_after_otp":""
     "subject" : ""
     "email":""
 
 codes: 
     401 = sent otp<br>
     402 = wrong json<br>
+
+<b>json sutructure for verify otp</b> <hr> <br>
+    "api_key" : ""
+    "type" : "otp_veri"
+
+    "session_id":""
+    "otp":""
+codes: 
+    501 = sent otp<br>
+    502 = wrong json<br>
 
 
 general error codes:<br>

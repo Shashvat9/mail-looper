@@ -1,0 +1,13 @@
+<?php
+    include("./DBmethod.php");
+    session_start();
+    if(array_key_exists($__SESSIONID,$_COOKIE)){
+        if(setcookie($__SESSIONID,"",time()-3600)){
+            header("location:index.php");
+        }
+    }
+    else{
+        unset($_SESSION[$__SESSIONID]);
+        header("location:index.php");
+    }
+?>

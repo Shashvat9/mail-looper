@@ -6,8 +6,8 @@
     if (strtoupper($_SERVER["REQUEST_METHOD"]) == "POST") {
         $json_st = $_POST["json"];
         $json = json_decode($json_st, true);
-        $api_key = $json["api_key"];
         if(validate_general_json($json)){
+            $api_key = $json["api_key"];
             if (getdata($api_key) == $api_key_value) {
                 // deffrient message but same subject
                 if ($json["type"]==1) {
@@ -48,6 +48,15 @@
                         json_send(402,"wrong json.");
                     }
                 }
+                // veri otp on mail
+                else if (strtolower($json["type"])=="otp_veri") {
+                    if(validate_jason_veri_mail_otp($json)){
+                        veri_otp($json);
+                    }
+                    else{
+                        json_send(502,"wrong json.");
+                    }
+                }
     
                 else{
                     json_send(4004,"not a valid request types.");
@@ -58,7 +67,7 @@
             }
         }
         else{
-            json_send(4006,"type is missing from json");
+            json_send(4006,"it has some field messing Please verify the json structure from readme file.");
         }
         
     } 
@@ -127,8 +136,22 @@
     function send_mail_otp($jsonArr)
     {
         $otp = genRandom($jsonArr["length"]);
-        sendMail($jsonArr["email"],$jsonArr["subject"],$jsonArr["message"]." ".$otp,$jsonArr["from_email"],$jsonArr["application_pass"]);
-        json_send(401,$otp);
+        sendMail($jsonArr["email"],$jsonArr["subject"],$jsonArr["message"].$otp.$jsonArr["message_after_otp"],$jsonArr["from_email"],$jsonArr["application_pass"]);
+        $id=uniqid();
+
+        $con=mysqli_connect();
+        json_send(401,$id);
+    }
+
+    function veri_otp($jsonArr) {
+        $otp=$jsonArr["otp"];
+        $sessionId=$jsonArr["session_id"];
+        print_r($_COOKIE);
+        // $otpInsession=$_SESSION[$sessionId];
+        $otpInsession=$_COOKIE[$sessionId];
+        if($otp==$otpInsession){
+            json_send(501,"true");
+        }
     }
 
     function validate_jason_diffMessageSameSubject($jsonArr) : bool
@@ -197,7 +220,7 @@
     function validate_jason_send_mail_otp($jsonArr) : bool
     {
         $flag = false;
-        if(array_key_exists("length",$jsonArr) && array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
+        if(array_key_exists("message_after_otp",$jsonArr) &&array_key_exists("length",$jsonArr) && array_key_exists("from_email",$jsonArr) && array_key_exists("application_pass",$jsonArr) && array_key_exists("message",$jsonArr) && array_key_exists("subject",$jsonArr)&& array_key_exists("email",$jsonArr)){
             $flag=true;
         }
         else{
@@ -206,10 +229,25 @@
 
         return $flag;
     }
+
+    function validate_jason_veri_mail_otp($jsonArr) : bool
+    {
+        $flag = false;
+        if(array_key_exists("session_id",$jsonArr)&& array_key_exists("otp",$jsonArr)){
+            $flag=true;
+        }
+        else{
+            $flag = false;
+        }
+
+        return $flag;
+    }
+
+
     function validate_general_json($jsonArr) : bool
     {
         $flag = false;
-        if(array_key_exists("type",$jsonArr)){
+        if(array_key_exists("type",$jsonArr) && array_key_exists("api_key",$jsonArr)){
             $flag=true;
         }
         else{
@@ -217,8 +255,6 @@
         }
         return $flag;
     }
-
-
 
     function json_send($code,$message)
     {
