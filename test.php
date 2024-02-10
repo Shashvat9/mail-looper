@@ -2,10 +2,14 @@
     $array = array("json"=>array("api_key"=>"mailre123",
     "type"=>"1",
     "api_key"=>"dp123",
-    "from_email"=>"vidya.gmit@gmail.com",
-    "application_pass"=>"uwrxrdoyqcrbgecb",
+    "from_email"=>"your email",
+    "application_pass"=>"",
     "subject"=>"hi",
+<<<<<<< HEAD
     ["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"],["email"=>"rajyagurushashvat@gmail.com","message"=>"hithere"]));
+=======
+    ["email"=>"abc@gmail.com","message"=>"hithere"],["email"=>"abc@gmail.com","message"=>"hithere"]);
+>>>>>>> a3b6b3b4ec443bbbe1c4b335f74f1bfb92d7cbeb
 
     // Get the keys of the array.
     $keys = array_keys($array);

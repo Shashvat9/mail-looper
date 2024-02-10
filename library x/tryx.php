@@ -4,7 +4,7 @@
     include "libraryx.php";
 
     
-    $obmail= new mail_to_send("vidya.gmit@gmail.com","uwrxrdoyqcrbgecb");
+    $obmail= new mail_to_send("","");
     $pdf="C:/Users/rajya/Downloads/DI-SEM5REGULARWINTEREXAMINATION-2022_204520307017.pdf";
     try
     {

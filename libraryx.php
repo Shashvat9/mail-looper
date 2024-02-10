@@ -88,8 +88,7 @@ class mail_to_send{
                 }
                 else
                 {
-                    // echo "<script>alert('There is a error in file uplode please try again.')</script>";
-                    // throw new Exception("There is a error in file uplode error no".$file_error);
+                    echo "<script>alert('There is a error in file uplode please try again.')</script>";
                 }
             }
             else

@@ -1,7 +1,7 @@
 <?php
     include "libraryx.php";
 
-    $api_key_value="need 69";
+    $api_key_value="Your api key";
 
     if (strtoupper($_SERVER["REQUEST_METHOD"]) == "POST") {
         $json_st = $_POST["json"];
